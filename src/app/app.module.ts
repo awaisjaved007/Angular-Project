@@ -15,7 +15,9 @@ import {appRoute} from "./app.route";
 import {RecipeStartComponent} from "./recipes/recipe-start/recipe-start.component";
 import {RecipeEditComponent} from "./recipes/recipe-edit/recipe-edit.component";
 import {RouterModule} from "@angular/router";
-import { MyNewRecipieComponent } from './my-new-recipie/my-new-recipie.component';
+import {MyNewRecipieComponent} from "./my-new-recipie/my-new-recipie.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RecipeService} from "app/recipes/recipe.service";
 
 @NgModule({
   declarations: [
@@ -34,9 +36,11 @@ import { MyNewRecipieComponent } from './my-new-recipie/my-new-recipie.component
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(appRoute)
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService,RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
