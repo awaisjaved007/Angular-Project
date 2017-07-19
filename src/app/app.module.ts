@@ -18,6 +18,11 @@ import {RouterModule} from "@angular/router";
 import {MyNewRecipieComponent} from "./my-new-recipie/my-new-recipie.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RecipeService} from "app/recipes/recipe.service";
+import {DataStorageService} from "./shared/data.storage.service";
+import {HttpModule} from "@angular/http";
+import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import {AuthService} from "./auth/auth.service";
 
 @NgModule({
   declarations: [
@@ -32,15 +37,18 @@ import {RecipeService} from "app/recipes/recipe.service";
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    MyNewRecipieComponent
+    MyNewRecipieComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot(appRoute)
   ],
-  providers: [ShoppingListService,RecipeService],
+  providers: [ShoppingListService,RecipeService,DataStorageService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
