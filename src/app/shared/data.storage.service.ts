@@ -17,14 +17,17 @@ export class DataStorageService {
 
   getRecipes() {
     const token = this.authService.getToken()
-    return this.http.get('https://ng-app-recipe.firebaseio.com/recipes.json?auth='+token)
+
+
+
+    /*return this.http.get('https://ng-app-recipe.firebaseio.com/recipes.json?auth='+token)
       .subscribe(
         (response: Response) => {
           const resp: Recipe[] = response.json()
           this.recipeService.recipes=resp
           this.recipeService.recipeChanged.next(this.recipeService.recipes.slice())
         }
-      )
+      )*/
   }
 
 }
